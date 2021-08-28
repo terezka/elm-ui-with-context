@@ -33,7 +33,7 @@ module Element.Harmony.Border exposing
 -}
 
 import Element.Border as Border
-import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony exposing (Attr, Attribute, Color, Theme, withContextAttribute)
 import Element.Harmony.Internal exposing (attr, attribute)
 
 
@@ -96,9 +96,10 @@ dotted =
 
 {-| Round all corners.
 -}
-rounded : Int -> Attribute context msg
+rounded : (Theme x -> Int) -> Attribute (Theme x) msg
 rounded radius =
-    attribute <| Border.rounded radius
+    withContextAttribute <| \theme ->
+        attribute <| Border.rounded (radius theme)
 
 
 {-| -}

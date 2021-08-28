@@ -1,5 +1,5 @@
 module Element.Harmony exposing
-    ( with, withAttribute, withDecoration, layout, layoutWith, element, attribute, attr
+    ( with, withAttribute, withDecoration, Theme, layout, layoutWith, element, attribute, attr
     , Element, none, text, el
     , row, wrappedRow, column
     , paragraph, textColumn
@@ -23,7 +23,7 @@ module Element.Harmony exposing
     , modular
     , map, mapAttribute
     , html, htmlAttribute
-    , withContext, withContextAttribute, withContextDecoration
+    , withContext, withContextAttr, withContextAttribute, withContextDecoration
     )
 
 {-|
@@ -407,6 +407,13 @@ withDecoration selector f =
 withContext : (context -> Element context msg) -> Element context msg
 withContext f =
     Element <| \context -> run context <| f context
+
+
+{-| Use the context to build an `Attr`. Have a look at the README for examples.
+-}
+withContextAttr : (context -> Attr context decorative msg) -> Attr context decorative msg
+withContextAttr f =
+    Attribute <| \context -> runAttr context <| f context
 
 
 {-| Use the context to build an `Attribute`. Have a look at the README for examples.
@@ -1016,16 +1023,18 @@ moveLeft x =
 
 
 {-| -}
-padding : Int -> Attribute context msg
+padding : Float -> Attribute (Theme x) msg
 padding x =
-    attribute <| Element.padding x
+    withContextAttribute <| \theme ->
+        attribute <| Element.padding (round <| toFloat theme.base * x)
 
 
 {-| Set horizontal and vertical padding.
 -}
-paddingXY : Int -> Int -> Attribute context msg
+paddingXY : Float -> Float -> Attribute (Theme x) msg
 paddingXY x y =
-    attribute <| Element.paddingXY x y
+    withContextAttribute <| \theme ->
+        attribute <| Element.paddingXY (round <| toFloat theme.base * x) (round <| toFloat theme.base * y)
 
 
 {-| If you find yourself defining unique paddings all the time, you might consider defining
@@ -1090,9 +1099,10 @@ spaceEvenly =
 
 
 {-| -}
-spacing : Int -> Attribute context msg
+spacing : Float -> Attribute (Theme x) msg
 spacing x =
-    attribute <| Element.spacing x
+    withContextAttribute <| \theme ->
+        attribute <| Element.spacing (round <| toFloat theme.base * x)
 
 
 {-| In the majority of cases you'll just need to use `spacing`, which will work as intended.
@@ -1100,9 +1110,10 @@ spacing x =
 However for some layouts, like `textColumn`, you may want to set a different spacing for the x axis compared to the y axis.
 
 -}
-spacingXY : Int -> Int -> Attribute context msg
+spacingXY : Float -> Float -> Attribute (Theme x) msg
 spacingXY x y =
-    attribute <| Element.spacingXY x y
+    withContextAttribute <| \theme ->
+        attribute <| Element.spacingXY (round <| toFloat theme.base * x) (round <| toFloat theme.base * y)
 
 
 {-| Make an element transparent and have it ignore any mouse or touch events, though it will stil take up space.

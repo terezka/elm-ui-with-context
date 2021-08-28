@@ -7,6 +7,8 @@ module Element.Harmony.Font exposing
     , heavy, extraBold, bold, semiBold, medium, regular, light, extraLight, hairline
     , Variant, variant, variantList, smallCaps, slashedZero, ligatures, ordinal, tabularNumbers, stackedFractions, diagonalFractions, swash, feature, indexed
     , glow, shadow
+
+    , h1, h2, h3, h4, normal, small
     )
 
 {-|
@@ -66,7 +68,7 @@ module Element.Harmony.Font exposing
 -}
 
 import Element.Font as Font
-import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony exposing (Attr, Attribute, Color, Theme, withContextAttr)
 import Element.Harmony.Internal exposing (attr, attribute)
 
 
@@ -76,9 +78,10 @@ type alias Font =
 
 
 {-| -}
-color : Color -> Attr context decorative msg
+color : (Theme x -> Color) -> Attr (Theme x) decorative msg
 color fontColor =
-    attr <| Font.color fontColor
+    withContextAttr <| \theme ->
+        attr <| Font.color (fontColor theme)
 
 
 {-|
@@ -408,3 +411,55 @@ In these cases we need to specify the index of the version we want.
 indexed : String -> Int -> Variant
 indexed =
     Font.indexed
+
+
+
+-- SCALED
+
+
+{-| -}
+h1 : Attr (Theme x) decorative msg
+h1 =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme 4
+
+
+{-| -}
+h2 : Attr (Theme x) decorative msg
+h2 =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme 3
+
+
+{-| -}
+h3 : Attr (Theme x) decorative msg
+h3 =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme 2
+
+
+{-| -}
+h4 : Attr (Theme x) decorative msg
+h4 =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme 1
+
+
+{-| -}
+normal : Attr (Theme x) decorative msg
+normal =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme 0
+
+
+{-| -}
+small : Attr (Theme x) decorative msg
+small =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme -1
+
+
+toSize : Theme x -> Float -> Int
+toSize theme power =
+    round <| (toFloat theme.base) * (theme.scale ^ power)
+

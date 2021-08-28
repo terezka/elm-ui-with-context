@@ -17,14 +17,15 @@ module Element.Harmony.Background exposing
 -}
 
 import Element.Background as Background
-import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony exposing (Attr, Attribute, Color, Theme, withContextAttr)
 import Element.Harmony.Internal exposing (attr, attribute)
 
 
 {-| -}
-color : Color -> Attr context decorative msg
+color : (Theme x -> Color) -> Attr (Theme x) decorative msg
 color clr =
-    attr <| Background.color clr
+    withContextAttr <| \theme ->
+        attr <| Background.color (clr theme)
 
 
 {-| Resize the image to fit the containing element while maintaining proportions and cropping the overflow.
