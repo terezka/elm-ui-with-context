@@ -1,4 +1,4 @@
-module Element.WithContext exposing
+module Element.Harmony exposing
     ( with, withAttribute, withDecoration, layout, layoutWith, element, attribute, attr
     , Element, none, text, el
     , row, wrappedRow, column
@@ -227,7 +227,7 @@ Sometimes it's more convenient to just access the whole context while building y
 -}
 
 import Element
-import Element.WithContext.Internal as Internal exposing (Attr(..), Attribute, Element(..), attr, attribute, attributes, run, runAttr, wrapAttrs, wrapContainer)
+import Element.Harmony.Internal as Internal exposing (Attr(..), Attribute, Element(..), attr, attribute, attributes, run, runAttr, wrapAttrs, wrapContainer)
 import Html exposing (Html)
 
 
@@ -586,9 +586,9 @@ You can think of an `el` as a `div`, but it can only have one child.
 
 If you want multiple children, you'll need to use something like `row` or `column`
 
-    import Element.WithContext as Element exposing (Element, rgb)
-    import Element.WithContext.Background as Background
-    import Element.WithContext.Border as Border
+    import Element.Harmony as Element exposing (Element, rgb)
+    import Element.Harmony.Background as Background
+    import Element.Harmony.Border as Border
 
     myElement : Element context msg
     myElement =

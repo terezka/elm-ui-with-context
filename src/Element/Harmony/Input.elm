@@ -1,4 +1,4 @@
-module Element.WithContext.Input exposing
+module Element.Harmony.Input exposing
     ( focusedOnLoad
     , button
     , checkbox, defaultCheckbox
@@ -186,8 +186,8 @@ Alternatively, see if it's reasonable to _not_ display an input if you'd normall
 
 import Element as Vanilla
 import Element.Input as Input
-import Element.WithContext exposing (Attribute, Element, element)
-import Element.WithContext.Internal exposing (attribute, attributes, run, wrapAttrs)
+import Element.Harmony exposing (Attribute, Element, element)
+import Element.Harmony.Internal exposing (attribute, attributes, run, wrapAttrs)
 
 
 {-| -}

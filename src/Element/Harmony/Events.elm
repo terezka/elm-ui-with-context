@@ -1,4 +1,4 @@
-module Element.WithContext.Events exposing
+module Element.Harmony.Events exposing
     ( onClick, onDoubleClick, onMouseDown, onMouseUp, onMouseEnter, onMouseLeave, onMouseMove
     , onFocus, onLoseFocus
     )
@@ -18,8 +18,8 @@ module Element.WithContext.Events exposing
 -}
 
 import Element.Events as Events
-import Element.WithContext exposing (Attribute)
-import Element.WithContext.Internal exposing (attribute)
+import Element.Harmony exposing (Attribute)
+import Element.Harmony.Internal exposing (attribute)
 
 
 

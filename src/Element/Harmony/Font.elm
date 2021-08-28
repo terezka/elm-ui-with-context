@@ -1,4 +1,4 @@
-module Element.WithContext.Font exposing
+module Element.Harmony.Font exposing
     ( color, size
     , family, Font, typeface, serif, sansSerif, monospace
     , external
@@ -11,8 +11,8 @@ module Element.WithContext.Font exposing
 
 {-|
 
-    import Element.WithContext as Element
-    import Element.WithContext.Font as Font
+    import Element.Harmony as Element
+    import Element.Harmony.Font as Font
 
     view =
         Element.el
@@ -66,8 +66,8 @@ module Element.WithContext.Font exposing
 -}
 
 import Element.Font as Font
-import Element.WithContext exposing (Attr, Attribute, Color)
-import Element.WithContext.Internal exposing (attr, attribute)
+import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony.Internal exposing (attr, attribute)
 
 
 {-| -}
@@ -83,8 +83,8 @@ color fontColor =
 
 {-|
 
-    import Element.WithContext as Element
-    import Element.WithContext.Font as Font
+    import Element.Harmony as Element
+    import Element.Harmony.Font as Font
 
     myElement =
         Element.el

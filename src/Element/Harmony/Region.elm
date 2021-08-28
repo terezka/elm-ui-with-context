@@ -1,4 +1,4 @@
-module Element.WithContext.Region exposing
+module Element.Harmony.Region exposing
     ( mainContent, navigation, heading, aside, footer
     , description
     , announce, announceUrgently
@@ -28,8 +28,8 @@ Here's an example of annotating your navigation region:
 -}
 
 import Element.Region as Region
-import Element.WithContext exposing (Attribute)
-import Element.WithContext.Internal exposing (attribute)
+import Element.Harmony exposing (Attribute)
+import Element.Harmony.Internal exposing (attribute)
 
 
 {-| -}

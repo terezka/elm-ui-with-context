@@ -1,4 +1,4 @@
-module Element.WithContext.Internal exposing (Attr(..), Attribute, Color, Decoration, Element(..), attr, attribute, attributes, run, runAttr, wrapAttrs, wrapContainer)
+module Element.Harmony.Internal exposing (Attr(..), Attribute, Color, Decoration, Element(..), attr, attribute, attributes, run, runAttr, wrapAttrs, wrapContainer)
 
 import Element
 
@@ -40,9 +40,9 @@ attributes context attrs =
 
 wrapAttrs :
     (List (Element.Attribute msg) -> child -> Element.Element msg)
-    -> (context -> childWithContext -> child)
+    -> (context -> childHarmony -> child)
     -> List (Attribute context msg)
-    -> childWithContext
+    -> childHarmony
     -> Element context msg
 wrapAttrs ctor f attrs child =
     Element <| \context -> ctor (attributes context attrs) (f context child)

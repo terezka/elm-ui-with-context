@@ -1,4 +1,4 @@
-module Element.WithContext.Background exposing
+module Element.Harmony.Background exposing
     ( color, gradient
     , image, uncropped, tiled, tiledX, tiledY
     )
@@ -17,8 +17,8 @@ module Element.WithContext.Background exposing
 -}
 
 import Element.Background as Background
-import Element.WithContext exposing (Attr, Attribute, Color)
-import Element.WithContext.Internal exposing (attr, attribute)
+import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony.Internal exposing (attr, attribute)
 
 
 {-| -}

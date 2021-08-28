@@ -1,4 +1,4 @@
-module Element.WithContext.Keyed exposing (el, column, row)
+module Element.Harmony.Keyed exposing (el, column, row)
 
 {-| Notes from the `Html.Keyed` on how keyed works:
 
@@ -21,8 +21,8 @@ This means if a key is changed between renders, then the diffing step will be sk
 -}
 
 import Element.Keyed as Keyed
-import Element.WithContext exposing (Attribute, Element)
-import Element.WithContext.Internal exposing (run, wrapAttrs)
+import Element.Harmony exposing (Attribute, Element)
+import Element.Harmony.Internal exposing (run, wrapAttrs)
 
 
 {-| -}

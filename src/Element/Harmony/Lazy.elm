@@ -1,4 +1,4 @@
-module Element.WithContext.Lazy exposing (lazy, lazy2, lazy3)
+module Element.Harmony.Lazy exposing (lazy, lazy2, lazy3)
 
 {-|
 
@@ -23,8 +23,8 @@ This is a really cheap test and often makes things a lot faster, but definitely
 
 import Element as Vanilla
 import Element.Lazy as Lazy
-import Element.WithContext exposing (Element)
-import Element.WithContext.Internal as Internal exposing (run)
+import Element.Harmony exposing (Element)
+import Element.Harmony.Internal as Internal exposing (run)
 
 
 {-| -}

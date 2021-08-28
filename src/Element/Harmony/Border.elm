@@ -1,4 +1,4 @@
-module Element.WithContext.Border exposing
+module Element.Harmony.Border exposing
     ( color
     , width, widthXY, widthEach
     , solid, dashed, dotted
@@ -33,8 +33,8 @@ module Element.WithContext.Border exposing
 -}
 
 import Element.Border as Border
-import Element.WithContext exposing (Attr, Attribute, Color)
-import Element.WithContext.Internal exposing (attr, attribute)
+import Element.Harmony exposing (Attr, Attribute, Color)
+import Element.Harmony.Internal exposing (attr, attribute)
 
 
 {-| -}
