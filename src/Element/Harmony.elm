@@ -494,15 +494,19 @@ fillPortion =
     Element.fillPortion
 
 
+type alias Theme x =
+    { x | base : Int, scale : Float }
+
+
 {-| This is your top level node where you can turn `Element` into `Html`.
 -}
-layout : context -> List (Attribute context msg) -> Element context msg -> Html msg
+layout : Theme x -> List (Attribute (Theme x) msg) -> Element (Theme x) msg -> Html msg
 layout context attrs (Element f) =
     Element.layout (attributes context attrs) (f context)
 
 
 {-| -}
-layoutWith : context -> { options : List Option } -> List (Attribute context msg) -> Element context msg -> Html msg
+layoutWith : Theme x -> { options : List Option } -> List (Attribute (Theme x) msg) -> Element (Theme x) msg -> Html msg
 layoutWith context options attrs (Element f) =
     Element.layoutWith options (attributes context attrs) (f context)
 
