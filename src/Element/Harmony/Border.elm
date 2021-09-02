@@ -33,14 +33,16 @@ module Element.Harmony.Border exposing
 -}
 
 import Element.Border as Border
-import Element.Harmony exposing (Attr, Attribute, Color, Theme, withContextAttribute)
+import Element.Harmony exposing (Attr, Attribute, Color, Theme, withContextAttribute, withContextAttr)
 import Element.Harmony.Internal exposing (attr, attribute)
 
 
 {-| -}
-color : Color -> Attr context decorative msg
+color : (Theme x -> Color) -> Attr (Theme x) decorative msg
 color clr =
-    attr <| Border.color clr
+    withContextAttr <| \theme ->
+        attr <| Border.color (clr theme)
+
 
 
 {-| -}

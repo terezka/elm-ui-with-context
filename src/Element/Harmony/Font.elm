@@ -8,7 +8,7 @@ module Element.Harmony.Font exposing
     , Variant, variant, variantList, smallCaps, slashedZero, ligatures, ordinal, tabularNumbers, stackedFractions, diagonalFractions, swash, feature, indexed
     , glow, shadow
 
-    , h1, h2, h3, h4, normal, small
+    , h1, h2, h3, h4, normal, small, tiny
     )
 
 {-|
@@ -459,7 +459,14 @@ small =
         attr <| Font.size <| toSize theme -1
 
 
+{-| -}
+tiny : Attr (Theme x) decorative msg
+tiny =
+    withContextAttr <| \theme ->
+        attr <| Font.size <| toSize theme -2
+
+
 toSize : Theme x -> Float -> Int
 toSize theme power =
-    round <| (toFloat theme.base) * (theme.scale ^ power)
+    round <| (toFloat theme.fontSize) * (theme.scale ^ power)
 

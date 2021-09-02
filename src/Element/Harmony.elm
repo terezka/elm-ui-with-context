@@ -502,7 +502,7 @@ fillPortion =
 
 
 type alias Theme x =
-    { x | base : Int, scale : Float }
+    { x | base : Int, scale : Float, fontSize : Int }
 
 
 {-| This is your top level node where you can turn `Element` into `Html`.
